@@ -25,16 +25,24 @@ district_results = [list() for i in range(11)]
 
 for fy_folder in fy_folders:
 #    print(fy_folder)
+    fyear = fy_folder.split(' ')[0]
 #    print('####################################################')
-    inputs = []
+    raw_inputs = []
     dir_path = os.path.join(data_path, fy_folder)
 #        print(dir_path)
     for file in os.scandir(dir_path):
         if file.name.split('.')[-1] == 'img':
 #                print(file.name)
             raster_path = os.path.join(dir_path, file.name)
-            inputs.append(raster_path)
+            raw_inputs.append(raster_path)
+    inputs = sorted(raw_inputs)
     for i in range(len(inputs)):
+        ##########Get calendar year and month###################
+#        print(inputs[i])
+        calendar_yr = inputs[i].split('/')[-1].split('.')[0][:4]
+        mnth_digit = inputs[i].split('/')[-1].split('.')[0][-2:]
+        mnth_name = months[int(mnth_digit)-1]
+        ########################################################
         # add next input to stack on each iteration e.g. [1], [1,2], [1,2,3] etc
         rstack = inputs[:i+1]
         if len(rstack) == 1:
@@ -47,11 +55,7 @@ for fy_folder in fy_folders:
                         'OUTPUT':'TEMPORARY_OUTPUT'}
 
             stats = processing.run("native:zonalstatisticsfb", zonal_stats_params)['OUTPUT']
-            for f in stats.getFeatures():
-                for i, district in enumerate(all_districts):
-                                    if f['DISTRICT'] == district:
-                                        district_results[i].append([f['DISTRICT'], f['_mean'], f['_median']])
-#                print(f['DISTRICT'], f['_mean'], f['_median'])
+
         elif len(rstack) > 1:
             # run cell stats to sum pixels of rasters in rstack, then zonal stats for mean & median for each district
             cell_stat_params = {'INPUT':rstack,
@@ -70,13 +74,17 @@ for fy_folder in fy_folders:
                         'OUTPUT':'TEMPORARY_OUTPUT'}
 
             stats = processing.run("native:zonalstatisticsfb", zonal_stats_params)['OUTPUT']
-            for f in stats.getFeatures():
+            
+        for f in stats.getFeatures():
 #                print(f['DISTRICT'], f['_mean'], f['_median'])
-                for i, district in enumerate(all_districts):
-                    if f['DISTRICT'] == district:
-                        district_results[i].append([f['DISTRICT'], f['_mean'], f['_median']])
+            for i, district in enumerate(all_districts):
+                if f['DISTRICT'] == district:
+#                        district_results[i].append([f['DISTRICT'], f['_mean'], f['_median']])
+                    # Write all column values as a row/feature attributes
+                    district_results[i].append([fyear, calendar_yr, mnth_name, f['DISTRICT'], f['_mean'], f['_median']])
                 
             
 #        print(stack)
 for r in district_results:
-    print(district_results)
+    print('#####################################################################')
+    print(r)
