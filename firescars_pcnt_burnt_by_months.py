@@ -16,7 +16,7 @@ district_da = QgsDistanceArea()
 district_da.setSourceCrs(district_lyr.crs(), QgsProject.instance().transformContext())
 district_da.setEllipsoid(district_lyr.crs().ellipsoidAcronym())
 
-fts = [f for f in lyr.getFeatures() if f['month'] == 7]
+fts = [f for f in lyr.getFeatures() if f['month'] > 6]
 #fts = [f for f in lyr.getFeatures() if f['month'] in [1, 2, 3, 4, 5, 6]]
 #fts = [f for f in lyr.getFeatures()]
 
