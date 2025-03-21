@@ -42,8 +42,8 @@ mem_driver = ogr.GetDriverByName("Memory")
 mem_driver_gdal = gdal.GetDriverByName("MEM")
 shp_name = "temp"
 
-fn_raster = 'R:\\LID-BigData\\SPATIAL DATA\\PROJECTS\\Northern Territory\\Feed Outlook\\MONTHLY GROWTH\\2022-2023 FY\\202207.01months.growth.tot.nt.img'
-fn_zones = 'C:\\Users\\qw2\\Desktop\\Feed_Outlook_Data\\Pastoral_districts\\NT_pastoral_districts_WGS84.gpkg'
+fn_raster = 'PROJECTS\\Northern Territory\\Feed Outlook\\MONTHLY GROWTH\\2022-2023 FY\\202207.01months.growth.tot.nt.img'
+fn_zones = 'Feed_Outlook_Data\\Pastoral_districts\\NT_pastoral_districts_WGS84.gpkg'
 
 r_ds = gdal.Open(fn_raster)
 p_ds = ogr.Open(fn_zones)
