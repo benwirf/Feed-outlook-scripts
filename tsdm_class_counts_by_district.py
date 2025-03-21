@@ -7,7 +7,7 @@ northern_districts = ['darwin', 'katherine', 'VRD', 'sturt-plateau', 'roper', 'g
 southern_districts = ['barkly', 'tennant-creek', 'northern-alice-springs', 'plenty', 'southern-alice-springs']
 
 ###############################################################################
-folder_path = 'C:\\Users\\qw2\\Desktop\\Feed_Outlook_Data\\July\\TSDM_total\\TSDM_clipped_to_districts'
+folder_path = 'Feed_Outlook_Data\\July\\TSDM_total\\TSDM_clipped_to_districts'
 ###############################################################################
 
 def total_tsdm_counts(raster1, district, region):
@@ -49,7 +49,7 @@ def total_tsdm_counts(raster1, district, region):
         
     return [district, class1_count, class2_count, class3_count, class4_count, class1_pcnt, class2_pcnt, class3_pcnt, class4_pcnt, checksum]
 
-output_csv = open('C:\\Users\\qw2\\Desktop\\Feed_Outlook_Data\\July\\TSDM_total\\tsdm_summary_july_22.csv', mode='w', newline='')
+output_csv = open('Feed_Outlook_Data\\July\\TSDM_total\\tsdm_summary_july_22.csv', mode='w', newline='')
 writer = csv.writer(output_csv)
 writer.writerow(['District', 'Low count', 'Low-moderate count', 'Moderate count', 'High count', 'Low pcnt', 'Low-moderate pcnt', 'Moderate pcnt', 'High pcnt', 'checksum'])
 
