@@ -3,7 +3,7 @@ import numpy as np
 import csv
 
 lyr = iface.activeLayer()
-pcnt_growth_csv = 'R:\\LID-BigData\\SPATIAL DATA\\PROJECTS\\Northern Territory\\Feed Outlook\\2023\\MARCH-2023\\OUTPUT\\Percentile_growth_summary.csv'
+pcnt_growth_csv = 'PROJECTS\\Northern Territory\\Feed Outlook\\2023\\MARCH-2023\\OUTPUT\\Percentile_growth_summary.csv'
 
 tbl_growth = open(pcnt_growth_csv, mode='w', newline='')
 
