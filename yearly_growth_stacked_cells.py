@@ -8,7 +8,7 @@ months = ['January', 'February',  'March', 'April', 'May', 'June', 'July', 'Augu
 northern_district_medians = {'Darwin': 2010, 'Katherine': 2097, 'Victoria River': 1842, 'Sturt Plateau': 2031, 'Roper': 2215, 'Gulf': 2083}
 southern_district_medians = {'Barkly': 664, 'Tennant Creek': 288, 'Northern Alice Springs': 495, 'Plenty': 328, 'Southern Alice Springs': 232}
 
-district_path = '/home/ben/Feed_Outlook/Feed_Outlook_Data/Pastoral_districts/NT_pastoral_districts_WGS84.gpkg'
+district_path = 'Feed_Outlook_Data/Pastoral_districts/NT_pastoral_districts_WGS84.gpkg'
 
 data_path = '/home/ben/Feed_Outlook/MONTHLY GROWTH'
 
