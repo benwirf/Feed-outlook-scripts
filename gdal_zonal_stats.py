@@ -112,6 +112,6 @@ def loop_zonal_stats(input_zone_polygon, input_value_raster):
     return statDict
 ###################################################################################################################################
 
-district_path = 'C:\\Users\\qw2\\Desktop\\Feed_Outlook_Data\\Pastoral_districts\\NT_pastoral_districts_WGS84.gpkg'
-raster_path = 'R:\\LID-BigData\\SPATIAL DATA\\PROJECTS\\Northern Territory\\Feed Outlook\\MONTHLY GROWTH\\2022-2023 FY\\202207.01months.growth.tot.nt.img'
+district_path = 'Feed_Outlook_Data\\Pastoral_districts\\NT_pastoral_districts_WGS84.gpkg'
+raster_path = 'PROJECTS\\Northern Territory\\Feed Outlook\\MONTHLY GROWTH\\2022-2023 FY\\202207.01months.growth.tot.nt.img'
 print(loop_zonal_stats(district_path, raster_path))
